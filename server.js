@@ -46,11 +46,12 @@ app.get("/callback", async (req, res) => {
 
   // Přesměrování na Lovable web s username a avatar
   res.redirect(
-    `https://reydens-gaming-hub.lovable.app/?username=${user.username}&avatar=${avatar}`
-  );
+  `https://reydens-gaming-hub.lovable.app/?username=${user.username}&avatar=${avatar}&discord_id=${user.id}&roles=${user.roles.join(",")}`
+);
 });
 
 // 🌟 Použít port Renderu
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 
